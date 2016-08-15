@@ -1,13 +1,12 @@
 package com.example.tomoka_moriwaki.marketapp.api;
 
-import android.database.Observable;
-
 import com.example.tomoka_moriwaki.marketapp.model.Item;
 
 import java.util.List;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import rx.Observable;
 
 public interface MarketService {
 

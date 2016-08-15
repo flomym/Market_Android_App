@@ -23,10 +23,8 @@ public class MarketServiceHolder {
         return retrofit().create(MarketService.class);
     }
 
-
-
     private static Retrofit retrofit() {
-        final String ENDPOINT = "https://ancient-bastion-22709.herokuapp.com";
+        final String ENDPOINT = "http://192.168.120.196:3000";
         return new Retrofit.Builder()
                 .baseUrl(ENDPOINT)
                 .addConverterFactory(GsonConverterFactory.create())
