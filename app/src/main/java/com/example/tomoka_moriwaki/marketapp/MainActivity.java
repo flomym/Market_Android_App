@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // ItemDetailActivityを生成
                 Intent intent = new Intent(MainActivity.this, ItemDetailActivity.class);
+                intent.putExtra("id", item.getId());
                 startActivity(intent);
 
             }

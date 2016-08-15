@@ -34,22 +34,27 @@ public class ItemDetailActivity extends MainActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        int item_id = -1;
+
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_item_detail);
         RecommendAdapter adapter = new RecommendAdapter();
         binding = DataBindingUtil.setContentView(this, R.layout.activity_item_detail);
 
         Intent intent = getIntent();
+        if (intent != null) {
+            item_id = intent.getIntExtra("id",-1);
+        }
 
         MarketServiceHolder.get()
-                .item(0)
+                .item(item_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Item>() {
                     @Override
                     public void call(Item item) {
                         binding.itemName.setText(item.getName());
-                        binding.itemValue.setText(String.valueOf(item.getPrice()));
+                        binding.itemValue.setText(String.valueOf(item.getPrice()+"円"));
                     }
                 }, new Action1<Throwable>() {
                     @Override
