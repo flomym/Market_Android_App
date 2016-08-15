@@ -1,5 +1,6 @@
 package com.example.tomoka_moriwaki.marketapp;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClickItem(Item item, View view) {
                 Toast.makeText(MainActivity.this, "tapped", Toast.LENGTH_SHORT).show();
+
+                // ItemDetailActivityを生成
+                Intent intent = new Intent(MainActivity.this, ItemDetailActivity.class);
+                startActivity(intent);
             }
         });
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
