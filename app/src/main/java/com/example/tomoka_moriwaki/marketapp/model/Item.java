@@ -16,14 +16,19 @@ public class Item {
     @SerializedName("price")
     private int price;
 
+    @SerializedName("description")
+    private String description;
+
     @SerializedName("image_url")
     private String imageUrl;
 
 
-    public Item(int id, String name, int price) {
+    public Item(int id, String name, int price, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.description = description;
+
     }
 
     public int getId() {
@@ -34,7 +39,7 @@ public class Item {
         return name;
     }
 
-    public int getPrice() {
-        return price;
-    }
+    public int getPrice() { return price; }
+
+    public String getDescription() { return description; }
 }
